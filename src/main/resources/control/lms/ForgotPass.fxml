@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="301.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.lms.ForgotPassController">
+   <children>
+      <ImageView fitHeight="408.0" fitWidth="455.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../imgs/login_bg.png" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label layoutX="83.0" layoutY="36.0" text="Forgot Password" textAlignment="CENTER">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernameTextField" layoutX="25.0" layoutY="100.0" prefHeight="30.0" prefWidth="250.0" promptText="Enter Your Username" />
+            <TextField fx:id="emailTextField" layoutX="25.0" layoutY="150.0" prefHeight="30.0" prefWidth="250.0" promptText="Enter Your Email" />
+            <Button layoutX="122.0" layoutY="202.0" mnemonicParsing="false" onAction="#handleForgotPass" text="Enter">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Hyperlink fx:id="backToLoginLink" layoutX="25.0" layoutY="284.0" onAction="#handleBackToLogin" text="Back to the login screen" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
