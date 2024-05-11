@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.lms.Home">
+    <children>
+        <ImageView fitHeight="688.0" fitWidth="911.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../imgs/login_bg.png" />
+            </image>
+        </ImageView>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <Label layoutX="281.0" layoutY="8.0" style="-fx-font-family: &quot;Times New Roman&quot;, Times, serif; -fx-font-weight: bold;" text="Library Management System " textFill="#453f3f">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+                <Pane layoutX="5.0" layoutY="59.0" prefHeight="543.0" prefWidth="224.0" style="-fx-background-color: #6b7cbf;">
+                    <children>
+                  <Button fx:id="btnHome" alignment="TOP_LEFT" layoutY="202.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#homePage" onMouseEntered="#highlightbtnHome" onMouseExited="#resetbtnHome" prefHeight="60.0" prefWidth="224.0" style="-fx-background-color: #6b7cbf; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 10px;" text="Home Page " textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../imgs/house.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnManageBook" alignment="TOP_LEFT" layoutX="-1.0" layoutY="262.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#manageBook" onMouseEntered="#highlightbtnManageBook" onMouseExited="#resetbtnManageBook" prefHeight="60.0" prefWidth="224.0" style="-fx-background-color: #6b7cbf; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 10px;" text="Manage Book" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../imgs/open-book.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnManageMember" alignment="TOP_LEFT" layoutY="322.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#manageMember" onMouseEntered="#highlightbtnManageMember" onMouseExited="#resetbtnManageMember" prefHeight="60.0" prefWidth="224.0" style="-fx-background-color: #6b7cbf; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 10px;" text="Manage Member" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../imgs/team.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnViewRecord" alignment="TOP_LEFT" layoutY="382.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#viewRecord" onMouseEntered="#highlightbtnViewRecord" onMouseExited="#resetbtnViewRecord" prefHeight="60.0" prefWidth="224.0" style="-fx-background-color: #6b7cbf; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 10px;" text="View Record" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../imgs/edit.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnSignOut" alignment="CENTER" layoutY="485.0" mnemonicParsing="false" onAction="#handleSignOut" onMouseEntered="#highlightbtnSignOut" onMouseExited="#resetbtnSignOut" prefHeight="44.0" prefWidth="224.0" style="-fx-background-color: #6b7cbf; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 10px;" text="Sign Out " textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../imgs/logout.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <ImageView fitHeight="162.0" fitWidth="224.0" layoutX="-1.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../imgs/img_menu.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="50.0" fitWidth="54.0" layoutX="86.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../imgs/white.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="79.0" fitWidth="49.0" layoutX="86.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../imgs/user.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="87.0" layoutY="172.0" text="Admin" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                    </children></Pane>
+            <BorderPane layoutX="281.0" layoutY="52.0" prefHeight="550.0" prefWidth="622.0">
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <StackPane fx:id="contentArea" layoutX="-52.0" layoutY="7.0" prefHeight="543.0" prefWidth="675.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-52.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="7.0" />
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+            <Pane layoutY="52.0" prefHeight="6.0" prefWidth="911.0" style="-fx-background-color: black;" />
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>
