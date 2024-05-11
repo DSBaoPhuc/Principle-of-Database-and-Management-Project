@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.lms.ManageBook">
+   <children>
+      <TableView fx:id="bookTable" layoutX="11.0" layoutY="134.0" prefHeight="256.0" prefWidth="584.0">
+        <columns>
+          <TableColumn fx:id="idCol" prefWidth="75.0" style="fx-alignment: center;" text="BookID" />
+          <TableColumn fx:id="titleCol" prefWidth="160.0" style="fx-alignment: center;" text="Title" />
+            <TableColumn fx:id="authorCol" prefWidth="129.0" style="fx-alignment: center;" text="Author" />
+            <TableColumn fx:id="genreCol" prefWidth="113.0" style="fx-alignment: center;" text="Genre" />
+            <TableColumn fx:id="PublicationYear" prefWidth="122.0" style="fx-alignment: center;" text="Publication Year" />
+            <TableColumn fx:id="CopyAvailCol" prefWidth="122.0" style="fx-alignment: center;" text="Copies Available" />
+            <TableColumn fx:id="TotalCopyCol" prefWidth="122.0" style="fx-alignment: center;" text="Total Copies" />
+        </columns>
+      </TableView>
+      <Pane layoutY="56.0" prefHeight="9.0" prefWidth="600.0" style="-fx-background-color: black;" />
+      <Text layoutX="13.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Books Details">
+         <font>
+            <Font name="Times New Roman Bold" size="40.0" />
+         </font>
+      </Text>
+      <HBox layoutX="14.0" layoutY="83.0" prefHeight="41.0" prefWidth="270.0">
+         <children>
+            <ImageView fx:id="addBook" fitHeight="41.0" fitWidth="45.0" onMouseClicked="#getAddView" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imgs/add.png" />
+               </image>
+            </ImageView>
+            <Pane prefHeight="38.0" prefWidth="32.0" />
+            <ImageView fx:id="refreshTable" fitHeight="41.0" fitWidth="45.0" onMouseClicked="#refreshTable" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imgs/refresh.png" />
+               </image>
+            </ImageView>
+            <Pane prefHeight="38.0" prefWidth="32.0" />
+            <ImageView fx:id="removeBookBtn" fitHeight="50.0" fitWidth="46.0" onMouseClicked="#removeBook" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imgs/remove_book.png" />
+               </image>
+            </ImageView>
+            <Pane prefHeight="38.0" prefWidth="32.0" />
+            <ImageView fx:id="updateBookBtn1" fitHeight="41.0" fitWidth="45.0" onMouseClicked="#updateBook" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imgs/edit.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Pane layoutX="-3.0" prefHeight="400.0" prefWidth="6.0" style="-fx-background-color: black;" />
+      <Pane layoutX="600.0" layoutY="-3.0" prefHeight="408.0" prefWidth="6.0" style="-fx-background-color: black;" />
+      <Pane layoutY="-4.0" prefHeight="9.0" prefWidth="600.0" style="-fx-background-color: black;" />
+      <Pane layoutY="396.0" prefHeight="9.0" prefWidth="600.0" style="-fx-background-color: black;" />
+   </children>
+</AnchorPane>
