@@ -10,12 +10,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import java.sql.*;
 
 import java.io.IOException;
+import java.sql.*;
 
 public class LoginScreenController{
+    public Button btnCancel;
     Stage stage;
     @FXML
     private TextField usernameTextField;
@@ -39,9 +41,9 @@ public class LoginScreenController{
             return;
         }
 
-        final String DB_URL = "jdbc:sqlserver://LAPTOP-0BHK1N3R;databasename=Library_Management;encrypt=false";
+        final String DB_URL = "jdbc:sqlserver://LAPTOP-0BHK1N3R;databasename=Library_Management_System;encrypt=false";
         final String USERNAME = "sa";
-        final String PASSWORD = "123";
+        final String PASSWORD = "321";
 
         try (Connection connection = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD)) {
 
@@ -61,39 +63,16 @@ public class LoginScreenController{
                 // Compare passwords
                 if (password.equals(dbPassword)) {
                     // Passwords match, login successful
-                    if(username.equals("ITDSIU21109")){
-                        username = "Phuc";
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Welcome");
-                        alert.setHeaderText(null);
-                        alert.setContentText("Welcome "+username);
-                        alert.showAndWait();
+                    //Change Screen
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
+                    Parent root = loader.load();
+                    Scene scene = new Scene(root);
+                    Stage stage = (Stage) loginButton.getScene().getWindow(); // Get the current stage
+                    stage.getIcons().add(new Image("C:\\Users\\Admin\\Documents\\LMS - PDM Project\\src\\main\\resources\\imgs\\image.png"));
+                    stage.setTitle("Home Screen");
+                    stage.setScene(scene);
+                    stage.show();
 
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeScreen.fxml"));
-                        Parent root = loader.load();
-                        Scene scene = new Scene(root);
-                        Stage stage = (Stage) loginButton.getScene().getWindow(); // Get the current stage
-                        stage.getIcons().add(new Image("C:\\Users\\Admin\\Documents\\LMS - PDM Project\\src\\main\\resources\\imgs\\image.png"));
-                        stage.setTitle("Home Screen");
-                        stage.setScene(scene);
-                        stage.show();
-                    }
-                    else {
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Welcome");
-                        alert.setHeaderText(null);
-                        alert.setContentText("Welcome "+username);
-                        alert.showAndWait();
-
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeScreen.fxml"));
-                        Parent root = loader.load();
-                        Scene scene = new Scene(root);
-                        Stage stage = (Stage) loginButton.getScene().getWindow(); // Get the current stage
-                        stage.getIcons().add(new Image("C:\\Users\\Admin\\Documents\\LMS - PDM Project\\src\\main\\resources\\imgs\\image.png"));
-                        stage.setTitle("Home Screen");
-                        stage.setScene(scene);
-                        stage.show();
-                    }
                 } else {
                     // Passwords don't match
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -121,8 +100,30 @@ public class LoginScreenController{
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
+        stage.setTitle("Forgot Password");
         stage.getIcons().add(new Image("C:\\Users\\Admin\\Documents\\LMS - PDM Project\\src\\main\\resources\\imgs\\image.png"));
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void highlightLoginButton(MouseEvent event){
+        loginButton.setStyle("-fx-background-color: #0E49B5; -fx-background-radius: 20;");
+    }
+    @FXML
+    private void resetLoginButtonColor(MouseEvent event){
+        loginButton.setStyle("-fx-background-color: #153E90; -fx-background-radius: 20;");
+    }
+
+    public void highlightCancelButton(MouseEvent event){
+        btnCancel.setStyle("-fx-background-color: #0E49B5; -fx-background-radius: 20;");
+    }
+    @FXML
+    private void resetCancelButtonColor(MouseEvent event){
+        btnCancel.setStyle("-fx-background-color: #153E90; -fx-background-radius: 20;");
+    }
+
+    public void handleCancel(ActionEvent actionEvent) {
+        Stage stage = (Stage) btnCancel.getScene().getWindow();
+        stage.close();
     }
 }
