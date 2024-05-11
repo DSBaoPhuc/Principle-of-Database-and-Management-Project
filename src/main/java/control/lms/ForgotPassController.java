@@ -2,16 +2,13 @@ package control.lms;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.sql.*;
 
 public class ForgotPassController {
@@ -21,6 +18,9 @@ public class ForgotPassController {
     private TextField usernameTextField;
     @FXML
     private TextField emailTextField;
+
+    @FXML
+    private Button OKbtn;
 
     Stage stage;
 
@@ -37,9 +37,9 @@ public class ForgotPassController {
             return;
         }
 
-        final String DB_URL = "jdbc:sqlserver://LAPTOP-0BHK1N3R;databasename=Library_Management;encrypt=false";
+        final String DB_URL = "jdbc:sqlserver://LAPTOP-0BHK1N3R;databasename=Library_Management_System;encrypt=false";
         final String USERNAME = "sa";
-        final String PASSWORD = "123";
+        final String PASSWORD = "321";
 
         try (Connection connection = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD)) {
 
@@ -92,5 +92,13 @@ public class ForgotPassController {
     @FXML
     private void handleBackToLogin(ActionEvent event) {
         backToLoginLink.getScene().getWindow().hide();
+    }
+
+    public void highlightButton(MouseEvent event){
+        OKbtn.setStyle("-fx-background-color: #0E49B5; -fx-background-radius: 20;");
+    }
+    @FXML
+    private void resetButtonColor(MouseEvent event){
+        OKbtn.setStyle("-fx-background-color: #153E90; -fx-background-radius: 20;");
     }
 }

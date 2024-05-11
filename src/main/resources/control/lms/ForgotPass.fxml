@@ -19,19 +19,31 @@
       </ImageView>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Label layoutX="83.0" layoutY="36.0" text="Forgot Password" textAlignment="CENTER">
+            <Label layoutX="56.0" layoutY="33.0" style="-fx-font-weight: bold;" text="Forgot Password" textAlignment="CENTER">
                <font>
-                  <Font size="20.0" />
+                  <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="usernameTextField" layoutX="25.0" layoutY="100.0" prefHeight="30.0" prefWidth="250.0" promptText="Enter Your Username" />
-            <TextField fx:id="emailTextField" layoutX="25.0" layoutY="150.0" prefHeight="30.0" prefWidth="250.0" promptText="Enter Your Email" />
-            <Button layoutX="122.0" layoutY="202.0" mnemonicParsing="false" onAction="#handleForgotPass" text="Enter">
+            <TextField fx:id="usernameTextField" layoutX="55.0" layoutY="108.0" prefHeight="30.0" prefWidth="209.0" promptText="Enter Your Username" />
+            <TextField fx:id="emailTextField" layoutX="56.0" layoutY="165.0" prefHeight="30.0" prefWidth="210.0" promptText="Enter Your Email" />
+            <Button fx:id="OKbtn" layoutX="129.0" layoutY="224.0" mnemonicParsing="false" onAction="#handleForgotPass" onMouseEntered="#highlightButton" onMouseExited="#resetButtonColor" style="-fx-background-radius: 20; -fx-background-color: #153E90;" text="OK" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Hyperlink fx:id="backToLoginLink" layoutX="25.0" layoutY="284.0" onAction="#handleBackToLogin" text="Back to the login screen" />
+            <Hyperlink fx:id="backToLoginLink" layoutX="25.0" layoutY="284.0" onAction="#handleBackToLogin" text="Back to the login screen" textFill="#00235B" />
+            <Label layoutX="64.0" layoutY="90.0" style="-fx-font-weight: bold;" text="Username" />
+            <Label layoutX="64.0" layoutY="147.0" style="-fx-font-weight: bold;" text="Email" />
+            <ImageView fitHeight="24.0" fitWidth="23.0" layoutX="24.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imgs/user_icon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="23.0" layoutX="24.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imgs/email_icon.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
