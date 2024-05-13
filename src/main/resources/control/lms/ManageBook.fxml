@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -29,7 +30,7 @@
             <Font name="Times New Roman Bold" size="40.0" />
          </font>
       </Text>
-      <HBox layoutX="14.0" layoutY="83.0" prefHeight="41.0" prefWidth="270.0">
+      <HBox layoutX="14.0" layoutY="83.0" prefHeight="46.0" prefWidth="269.0">
          <children>
             <ImageView fx:id="addBook" fitHeight="41.0" fitWidth="45.0" onMouseClicked="#getAddView" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -39,7 +40,7 @@
             <Pane prefHeight="38.0" prefWidth="32.0" />
             <ImageView fx:id="refreshTable" fitHeight="41.0" fitWidth="45.0" onMouseClicked="#refreshTable" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../imgs/refresh.png" />
+                  <Image url="@../../imgs/update.png" />
                </image>
             </ImageView>
             <Pane prefHeight="38.0" prefWidth="32.0" />
@@ -60,5 +61,11 @@
       <Pane layoutX="600.0" layoutY="-3.0" prefHeight="408.0" prefWidth="6.0" style="-fx-background-color: black;" />
       <Pane layoutY="-4.0" prefHeight="9.0" prefWidth="600.0" style="-fx-background-color: black;" />
       <Pane layoutY="396.0" prefHeight="9.0" prefWidth="600.0" style="-fx-background-color: black;" />
+      <TextField fx:id="searchBar" layoutX="319.0" layoutY="93.0" prefHeight="26.0" prefWidth="224.0" />
+      <ImageView fx:id="searchBook" fitHeight="41.0" fitWidth="32.0" layoutX="554.0" layoutY="90.0" onMouseClicked="#searchBook" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../imgs/loupe.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

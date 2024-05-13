@@ -1,21 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<Pane xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="control.lms.ViewRecord">
+<?import javafx.scene.text.Text?>
 
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.lms.ViewRecord">
     <children>
-        <Label text="View Record" textFill="#fffdfd">
+        <TableView fx:id="recordTable" layoutX="11.0" layoutY="134.0" prefHeight="256.0" prefWidth="584.0">
+            <columns>
+            <TableColumn fx:id="borrowingIdCol" prefWidth="88.80002021789551" style="-fx-alignment: CENTER;" text="Borrowing ID" />
+                <TableColumn fx:id="bookIdCol" prefWidth="61.59996795654297" style="-fx-alignment: CENTER;" text="Book ID" />
+                <TableColumn fx:id="memberIdCol" prefWidth="71.20000457763672" style="-fx-alignment: CENTER;" text="Member ID" />
+                <TableColumn fx:id="memberNameCol" prefWidth="99.20001220703125" style="-fx-alignment: CENTER;" text="Member Name" />
+                <TableColumn fx:id="borrowDateCol" prefWidth="116.0" style="-fx-alignment: CENTER;" text="Borrow Date" />
+                <TableColumn fx:id="returnDateCol" prefWidth="106.4000244140625" style="-fx-alignment: CENTER;" text="Return Date" />
+                <TableColumn fx:id="returnedCol" prefWidth="60.000091552734375" style="-fx-alignment: CENTER;" text="Returned" />
+                <TableColumn fx:id="amountCol" prefWidth="80.79998779296875" style="-fx-alignment: CENTER;" text="Amount" />
+                <TableColumn fx:id="fineDateCol" prefWidth="120.0" style="-fx-alignment: CENTER;" text="Fine Date" />
+                <TableColumn fx:id="paidCol" prefWidth="70.0" style="-fx-alignment: CENTER;" text="Paid" />
+            </columns>
+        </TableView>
+        <Text layoutX="13.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Record Details">
             <font>
-                <Font name = "System Bold" size = "36.8"/>
+                <Font name="Times New Roman Bold" size="40.0" />
             </font>
-        </Label>
+        </Text>
+        <HBox layoutX="14.0" layoutY="83.0" prefHeight="42.0" prefWidth="273.0">
+         <children>
+            <ImageView fx:id="borrowBtn" fitHeight="41.0" fitWidth="45.0" onMouseClicked="#getBorrowView" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imgs/borrow.png" />
+               </image>
+            </ImageView>
+            <Pane prefHeight="38.0" prefWidth="32.0" />
+            <ImageView fx:id="returnBtn" fitHeight="41.0" fitWidth="45.0" onMouseClicked="#returnBook" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imgs/return.png" />
+               </image>
+            </ImageView>
+            <Pane prefHeight="38.0" prefWidth="32.0" />
+            <ImageView fx:id="refreshTableBtn" fitHeight="41.0" fitWidth="45.0" onMouseClicked="#refreshTable" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imgs/update.png" />
+               </image>
+            </ImageView>
+            <Pane prefHeight="38.0" prefWidth="32.0" />
+            <ImageView fx:id="statisticBtn" fitHeight="41.0" fitWidth="45.0" onMouseClicked="#showStatistic" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imgs/stats.png" />
+               </image>
+            </ImageView>
+         </children>
+        </HBox>
+        <Pane layoutX="-3.0" prefHeight="400.0" prefWidth="6.0" style="-fx-background-color: black;" />
+        <Pane layoutX="600.0" layoutY="-3.0" prefHeight="408.0" prefWidth="6.0" style="-fx-background-color: black;" />
+        <Pane layoutY="-4.0" prefHeight="9.0" prefWidth="600.0" style="-fx-background-color: black;" />
+        <Pane layoutY="396.0" prefHeight="9.0" prefWidth="600.0" style="-fx-background-color: black;" />
+      <Pane layoutY="56.0" prefHeight="9.0" prefWidth="600.0" style="-fx-background-color: black;" />
+      <TextField fx:id="searchBar" layoutX="315.0" layoutY="91.0" prefHeight="26.0" prefWidth="210.0" />
+      <ImageView fx:id="searchName" fitHeight="41.0" fitWidth="32.0" layoutX="538.0" layoutY="88.0" onMouseClicked="#searchName" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../imgs/loupe.png" />
+         </image>
+      </ImageView>
     </children>
-</Pane>
+</AnchorPane>
