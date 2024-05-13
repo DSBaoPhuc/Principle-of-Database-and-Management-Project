@@ -48,15 +48,11 @@ public class ForgotPassController {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, username);
 
-            // Execute query
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            // Check if username exists
             if (resultSet.next()) {
-                // Retrieve password from database
                 String dbemail = resultSet.getString("email");
 
-                // Compare passwords
                 if (email.equals(dbemail)) {
                     String dbPassword = resultSet.getString("password");
 
@@ -65,12 +61,10 @@ public class ForgotPassController {
                     alert.setHeaderText(null);
                     alert.setContentText("Your Password is: "+dbPassword);
                     alert.setOnCloseRequest(e -> {
-                        // Hide the Forgot Password window
                         ((Stage) usernameTextField.getScene().getWindow()).close();
                     });
                     alert.showAndWait();
                 } else {
-                    // Passwords don't match
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error");
                     alert.setHeaderText(null);
@@ -78,7 +72,6 @@ public class ForgotPassController {
                     alert.showAndWait();
                 }
             } else {
-                // Username not found
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setHeaderText(null);

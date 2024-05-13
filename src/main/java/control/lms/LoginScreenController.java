@@ -52,18 +52,12 @@ public class LoginScreenController{
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, username);
 
-            // Execute query
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            // Check if username exists
             if (resultSet.next()) {
-                // Retrieve password from database
                 String dbPassword = resultSet.getString("password");
 
-                // Compare passwords
                 if (password.equals(dbPassword)) {
-                    // Passwords match, login successful
-                    //Change Screen
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
                     Parent root = loader.load();
                     Scene scene = new Scene(root);
@@ -74,7 +68,6 @@ public class LoginScreenController{
                     stage.show();
 
                 } else {
-                    // Passwords don't match
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error");
                     alert.setHeaderText(null);
@@ -82,7 +75,6 @@ public class LoginScreenController{
                     alert.showAndWait();
                 }
             } else {
-                // Username not found
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setHeaderText(null);

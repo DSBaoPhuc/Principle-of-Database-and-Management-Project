@@ -20,14 +20,7 @@ public class AddBook implements Initializable {
     public Button saveBtn;
     public Button cleanBtn;
 
-    int bookID;
-    private boolean update;
-
-    String query = null;
     Connection connection = null;
-    PreparedStatement preparedStatement = null;
-    ResultSet resultSet = null;
-    Book book = null;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -56,12 +49,6 @@ public class AddBook implements Initializable {
         String copyAvailStr = addBookCopyAvail.getText();
         String totalCopyStr = addBookTotalCopy.getText();
 
-//        if(title.isEmpty() || subject.isEmpty() || quantityStr.isEmpty() || statusStr.isEmpty()){
-//            Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.setHeaderText(null);
-//            alert.setContentText("PLEASE FILL ALL DATA");
-//            alert.showAndWait();
-//        }
         if(title.equals("") || author.equals("") || genre.equals("") || pubYearStr.equals("") || copyAvailStr.equals("") || totalCopyStr.equals("")){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);

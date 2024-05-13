@@ -6,10 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -36,6 +33,8 @@ public class ManageBook implements Initializable {
     public ImageView refreshTable;
     public ImageView removeBookBtn;
     public ImageView updateBookBtn1;
+    public TextField searchBar;
+    public ImageView searchBook;
 
 
     String query = null;
@@ -106,7 +105,6 @@ public class ManageBook implements Initializable {
             stage.setTitle("Add Book");
             stage.getIcons().add(new Image("C:\\Users\\Admin\\Documents\\LMS - PDM Project\\src\\main\\resources\\imgs\\add.png"));
             stage.setScene(scene);
-//            stage.initStyle(StageStyle.UTILITY);
             stage.show();
 
         } catch (IOException e) {
@@ -122,18 +120,15 @@ public class ManageBook implements Initializable {
             alert.setHeaderText("Remove Book");
             alert.setContentText("Are you sure you want to remove the selected book?");
 
-            // Show the confirmation dialog and handle the user's response
             alert.showAndWait().ifPresent(response -> {
                 if (response == ButtonType.OK) {
                     try {
-                        // Remove the book from the database
                         String query = "DELETE FROM Books WHERE BookID = ?";
                         preparedStatement = connection.prepareStatement(query);
                         preparedStatement.setInt(1, selectedBook.getId());
                         preparedStatement.executeUpdate();
 
                         preparedStatement.close();
-                        // Refresh the table to reflect the changes
                         refreshTable();
                     } catch (SQLException ex) {
                         Logger.getLogger(ManageBook.class.getName()).log(Level.SEVERE, null, ex);
@@ -141,7 +136,6 @@ public class ManageBook implements Initializable {
                 }
             });
         } else {
-            // If no book is selected, show an error message
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("No Book Selected");
@@ -155,23 +149,18 @@ public class ManageBook implements Initializable {
 
         if (selectedBook != null) {
             try {
-                // Load the update book view
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("updateBook.fxml"));
                 Parent parent = loader.load();
 
-                // Get the controller for the update book view
                 UpdateBook controller = loader.getController();
 
-                // Pass the selected book's details to the controller
                 controller.initData(selectedBook);
 
-                // Create a new stage for the update book view
                 Stage stage = new Stage();
                 stage.setTitle("Update Book");
                 stage.setScene(new Scene(parent));
                 stage.showAndWait();
 
-                // Refresh the table after the update operation
                 refreshTable();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -179,11 +168,53 @@ public class ManageBook implements Initializable {
                 throw new RuntimeException(e);
             }
         } else {
-            // If no book is selected, show an error message
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("No Book Selected");
             alert.setContentText("Please select a book to update.");
+            alert.showAndWait();
+        }
+    }
+
+    public void searchBook(MouseEvent event) {
+        String keyword = searchBar.getText().trim();
+
+        if (!keyword.isEmpty()) {
+            try {
+                BookList.clear();
+
+                String query = "SELECT * FROM Books WHERE Title LIKE ?";
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setString(1, "%" + keyword + "%");
+                resultSet = preparedStatement.executeQuery();
+
+                if (!resultSet.isBeforeFirst()) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information");
+                    alert.setHeaderText(null);
+                    alert.setContentText("No books found with the provided keyword.");
+                    alert.showAndWait();
+                } else {
+                    while (resultSet.next()) {
+                        BookList.add(new Book(
+                                resultSet.getInt("BookID"),
+                                resultSet.getString("Title"),
+                                resultSet.getString("Author"),
+                                resultSet.getString("Genre"),
+                                resultSet.getInt("PublicationYear"),
+                                resultSet.getInt("CopiesAvailable"),
+                                resultSet.getInt("TotalCopies")));
+                    }
+                    bookTable.setItems(BookList);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(ManageBook.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a keyword to search for books.");
             alert.showAndWait();
         }
     }

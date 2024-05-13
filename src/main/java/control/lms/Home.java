@@ -28,60 +28,48 @@ public class Home {
     //Home button
     @FXML
     private void highlightbtnHome(MouseEvent event) {
-        // Define behavior when mouse enters the button
         btnHome.setStyle(HOVERED_BUTTON_STYLE);
     }
     @FXML
     private void resetbtnHome(MouseEvent event) {
-        // Define behavior when mouse exits the button
         btnHome.setStyle(IDLE_BUTTON_STYLE);
     }
 
     // Manage book button
     @FXML
     private void highlightbtnManageBook(MouseEvent event) {
-        // Define behavior when mouse enters the button
         btnManageBook.setStyle(HOVERED_BUTTON_STYLE);
     }
     @FXML
     private void resetbtnManageBook(MouseEvent event) {
-        // Define behavior when mouse exits the button
         btnManageBook.setStyle(IDLE_BUTTON_STYLE);
     }
 
-    // Manage member button
     @FXML
     private void highlightbtnManageMember(MouseEvent event) {
-        // Define behavior when mouse enters the button
         btnManageMember.setStyle(HOVERED_BUTTON_STYLE);
     }
     @FXML
     private void resetbtnManageMember(MouseEvent event) {
-        // Define behavior when mouse exits the button
         btnManageMember.setStyle(IDLE_BUTTON_STYLE);
     }
 
     // View Record button
     @FXML
     private void highlightbtnViewRecord(MouseEvent event) {
-        // Define behavior when mouse enters the button
         btnViewRecord.setStyle(HOVERED_BUTTON_STYLE);
     }
     @FXML
     private void resetbtnViewRecord(MouseEvent event) {
-        // Define behavior when mouse exits the button
         btnViewRecord.setStyle(IDLE_BUTTON_STYLE);
     }
 
-    // View Sign out button
     @FXML
     private void highlightbtnSignOut(MouseEvent event) {
-        // Define behavior when mouse enters the button
         btnSignOut.setStyle(HOVERED_BUTTON_STYLE);
     }
     @FXML
     private void resetbtnSignOut(MouseEvent event) {
-        // Define behavior when mouse exits the button
         btnSignOut.setStyle(IDLE_BUTTON_STYLE);
     }
 
@@ -109,7 +97,7 @@ public class Home {
     }
 
     public void manageMember (javafx.event.ActionEvent actionEvent) throws Exception{
-        Parent fxml = FXMLLoader.load(getClass().getResource("ManageMembers.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("ManageMember.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
