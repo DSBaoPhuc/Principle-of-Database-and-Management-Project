@@ -7,7 +7,6 @@ module control.lms {
     requires org.kordamp.bootstrapfx.core;
     requires java.desktop;
     requires java.sql;
-    requires fontawesomefx;
 
     opens control.lms to javafx.fxml;
     exports control.lms;
