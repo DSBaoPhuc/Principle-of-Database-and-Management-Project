@@ -158,6 +158,7 @@ public class ManageBook implements Initializable {
 
                 Stage stage = new Stage();
                 stage.setTitle("Update Book");
+                stage.getIcons().add(new Image("C:\\Users\\Admin\\Documents\\LMS - PDM Project\\src\\main\\resources\\imgs\\edit.png"));
                 stage.setScene(new Scene(parent));
                 stage.showAndWait();
 

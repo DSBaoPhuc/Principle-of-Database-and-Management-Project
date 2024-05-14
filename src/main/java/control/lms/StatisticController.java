@@ -3,12 +3,17 @@ package control.lms;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 
 import java.sql.*;
 
 public class StatisticController {
 
+    public Button SwapBtn;
+    public NumberAxis yAxis;
     @FXML
     private BarChart<String, Number> barChart;
 
@@ -33,13 +38,13 @@ public class StatisticController {
     }
 
     @FXML
-    private void toggleChartType() throws SQLException {
+    private void toggleChart() throws SQLException {
         // Clear existing data
         barChart.getData().clear();
 
         // Determine the new chart type based on the current state
         boolean isBooksBorrowed = barChart.getYAxis().getLabel().equals("Total Books Borrowed");
-        String yAxisLabel = isBooksBorrowed ? "Total Amount" : "Total Books Borrowed";
+        String yAxisLabel = isBooksBorrowed ? "Total Books Borrowed" : "Total Amount";
 
         // Update chart type and fetch data accordingly
         barChart.getYAxis().setLabel(yAxisLabel);
@@ -76,4 +81,11 @@ public class StatisticController {
         return preparedStatement.executeQuery();
     }
 
+    public void highlightButton(MouseEvent event){
+        SwapBtn.setStyle("-fx-background-color: #0E49B5; -fx-background-radius: 20;");
+    }
+    @FXML
+    private void resetButtonColor(MouseEvent event){
+        SwapBtn.setStyle("-fx-background-color: #153E90; -fx-background-radius: 20;");
+    }
 }

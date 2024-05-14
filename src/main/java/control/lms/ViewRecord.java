@@ -139,7 +139,7 @@ public class ViewRecord implements Initializable {
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
             stage.setTitle("Add Record");
-            stage.getIcons().add(new Image("C:\\Users\\Admin\\Documents\\LMS - PDM Project\\src\\main\\resources\\imgs\\add.png"));
+            stage.getIcons().add(new Image("C:\\Users\\Admin\\Documents\\LMS - PDM Project\\src\\main\\resources\\imgs\\borrow.png"));
             stage.setScene(scene);
             stage.show();
 
@@ -264,6 +264,7 @@ public class ViewRecord implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Monthly Borrowed Books Statistics");
             stage.setScene(new Scene(root));
+            stage.getIcons().add(new Image("C:\\Users\\Admin\\Documents\\LMS - PDM Project\\src\\main\\resources\\imgs\\stats.png"));
 
             // Get the controller associated with the FXML
             StatisticController statisticController = loader.getController();
@@ -280,15 +281,15 @@ public class ViewRecord implements Initializable {
         }
     }
 
-    private ResultSet generateStatisticData() throws SQLException {
-        String query = "SELECT MONTH(BorrowDate) AS Month, YEAR(BorrowDate) AS Year, COUNT(*) AS TotalBooks " +
-                "FROM Borrowings " +
-                "GROUP BY MONTH(BorrowDate), YEAR(BorrowDate) " +
-                "ORDER BY YEAR(BorrowDate), MONTH(BorrowDate)";
-
-        PreparedStatement preparedStatement = connection.prepareStatement(query);
-        return preparedStatement.executeQuery();
-    }
+//    private ResultSet generateStatisticData() throws SQLException {
+//        String query = "SELECT MONTH(BorrowDate) AS Month, YEAR(BorrowDate) AS Year, COUNT(*) AS TotalBooks " +
+//                "FROM Borrowings " +
+//                "GROUP BY MONTH(BorrowDate), YEAR(BorrowDate) " +
+//                "ORDER BY YEAR(BorrowDate), MONTH(BorrowDate)";
+//
+//        PreparedStatement preparedStatement = connection.prepareStatement(query);
+//        return preparedStatement.executeQuery();
+//    }
 
     private ResultSet fetchData(boolean isBooksBorrowed) throws SQLException {
         String query;

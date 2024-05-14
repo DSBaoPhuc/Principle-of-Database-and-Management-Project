@@ -101,7 +101,7 @@ public class ManageMember implements Initializable {
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
             stage.setTitle("Add Member");
-            stage.getIcons().add(new Image("C:\\Users\\Admin\\Documents\\LMS - PDM Project\\src\\main\\resources\\imgs\\add.png"));
+            stage.getIcons().add(new Image("C:\\Users\\Admin\\Documents\\LMS - PDM Project\\src\\main\\resources\\imgs\\add_user.png"));
             stage.setScene(scene);
             stage.show();
 
@@ -155,6 +155,7 @@ public class ManageMember implements Initializable {
 
                 Stage stage = new Stage();
                 stage.setTitle("Update Member");
+                stage.getIcons().add(new Image("C:\\Users\\Admin\\Documents\\LMS - PDM Project\\src\\main\\resources\\imgs\\edit.png"));
                 stage.setScene(new Scene(parent));
                 stage.showAndWait();
 
