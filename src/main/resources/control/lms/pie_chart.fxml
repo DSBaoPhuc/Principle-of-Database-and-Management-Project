@@ -11,7 +11,7 @@
     <VBox>
         <AnchorPane prefHeight="75.0" prefWidth="381.0">
             <children>
-                <Text layoutX="66.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Book per Subject" textAlignment="CENTER">
+                <Text layoutX="73.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Book per Genre" textAlignment="CENTER">
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font>
