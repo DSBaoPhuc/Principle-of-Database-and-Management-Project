@@ -35,6 +35,7 @@
 * Windows 10 or 11
 * ***For development:***
     * [IDE: IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows)
+    * [Programming Language](https://www.java.com/en/)
     * [JDK version: JDK 17](https://www.oracle.com/java/technologies/downloads/)
     * [Git](https://git-scm.com/downloads)
     * [JDBC Driver for SQL Server](https://learn.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver16)
@@ -49,23 +50,22 @@
 
 ### To Use
 
-1. Open folder...
-2. ...
-
-### Instruction 
-* [Instruction How to Using App]()
+1. Open folder src/main
+2. Continue click java folder
+3. Choose control/lms
+4. Select Main.java and run the program
 
 ### Demo
 * [Demo Video]()
 
 ### Use Case Diagram
-* [Use Case Diagram]()
+* [Use Case Diagram](https://drive.google.com/file/d/1pgVudajzI72yncKe2phigvLfBXz0ac28/view?usp=sharing)
   
 ### ER Diagram 
-* [ER Diagram]()
+* [ER Diagram](https://drive.google.com/drive/u/0/folders/1W0L8iP4P5oOH_k3WJpxTIVzkkLjjqTVv)
 
-### Class Diagrams
-* [UML]()
+### Schema Diagram
+* [Schema Diagram](https://drive.google.com/file/d/1woFbwRlrhKQk6mEYWdNk9Hn2pEXLX1Mb/view?usp=sharing)
 
 ## Contact
 
@@ -73,6 +73,6 @@ Tran Bao Phuc : [Facebook](https://www.facebook.com/baophuclyk18.cla/)
 - Gmail: baophuc.itds.hcmiu@gmail.com
 - Edu: ITDSIU21109@student.hcmiu.edu.vn 
 
-## Project Report Link: [Report]()
+## Project Report: [Report](https://docs.google.com/document/d/1gLZlldBk3HPSu98u00LYoIlW9RQ1N2C0kPrAG373xfo/edit?usp=sharing)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
